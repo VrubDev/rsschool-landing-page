@@ -135,6 +135,39 @@ header {
   cursor: default;
 }
 
+.theme-switch-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(4px);
+  padding: 4px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-switch-button:hover {
+  border-color: var(--color-dark-s);
+}
+
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--color-dark-m);
+  transition: all 0.3s ease;
+}
+
+.theme-icon.active {
+  background-color: var(--color-primary);
+  color: #262425;
+}
+
 @media (max-width: 768px) {
   .header_content {
     margin: 0 30px 0 30px;
@@ -178,6 +211,7 @@ header {
   .header_nav.open {
     right: 0;
   }
+
   .burger_icon.open {
     transform: rotate(90deg);
   }
@@ -488,6 +522,7 @@ header {
   .pets_content {
     padding: 80px 30px 100px 30px;
   }
+
   .slider_track {
     gap: 40px;
   }
@@ -507,9 +542,11 @@ header {
   .slider_track {
     gap: 20px;
   }
+
   .slider_track .pet_card:nth-child(2) {
     display: none;
   }
+
   .pets_content .section_title {
     font-size: 25px;
   }
@@ -691,8 +728,7 @@ header {
   }
 }
 
-@media (max-width: 745px) {
-}
+@media (max-width: 745px) {}
 
 @media (max-width: 550px) {
   .donation_content {
@@ -1013,26 +1049,33 @@ footer {
   .popup_content_pet {
     max-width: 630px;
   }
+
   .popup_img {
     width: 350px;
     height: 350px;
   }
+
   .pet_info {
     padding: 30px 10px 30px 20px;
   }
+
   .popup_title {
     font-size: 30px;
   }
+
   .popup_subtitle {
     margin-bottom: 20px;
   }
+
   .popup_description {
     font-size: 13px;
     margin-bottom: 20px;
   }
+
   .popup_list {
     gap: 8px;
   }
+
   .popup_list li {
     font-size: 13px;
   }
@@ -1043,25 +1086,32 @@ footer {
     max-width: 240px;
     margin: 0 auto;
   }
+
   .popup_content_pet {
     flex-direction: column;
     max-width: 240px;
   }
+
   .popup_img {
     display: none;
   }
+
   .pet_info {
     padding: 10px;
   }
+
   .popup_title {
     text-align: center;
   }
+
   .popup_subtitle {
     text-align: center;
   }
+
   .popup_description {
     text-align: justify;
   }
+
   .popup_close_btn {
     right: -30px;
   }
@@ -1194,6 +1244,7 @@ footer {
 }
 
 @media (max-width: 640px) {
+
   .pet_card:nth-child(4),
   .pet_card:nth-child(5),
   .pet_card:nth-child(6) {
@@ -1221,6 +1272,7 @@ footer {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
