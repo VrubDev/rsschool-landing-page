@@ -11,6 +11,7 @@
       type="image/x-icon"
     >
   </head>
+
   <body>
     <header class="header_light">
       <div class="wrapper">
@@ -19,7 +20,11 @@
             <span class="logo_title">Cozy House</span>
             <p>Shelter for pets in Boston</p>
           </a>
-          <button class="burger_icon" type="button" aria-label="Open navigation menu">
+          <button
+            class="burger_icon"
+            type="button"
+            aria-label="Open navigation menu"
+          >
             <span class="burger_icon_line dark_line"></span>
             <span class="burger_icon_line dark_line"></span>
             <span class="burger_icon_line dark_line"></span>
@@ -153,6 +158,11 @@
               Our friends who <br>
               are looking for a house
             </h1>
+            <div class="filter-controls">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="dog">Dogs</button>
+              <button class="filter-btn" data-filter="cat">Cats</button>
+            </div>
             <div class="pets">
               <article class="pet_card">
                 <img
@@ -228,18 +238,32 @@
               </article>
             </div>
             <div class="pagination">
-              <button class="pagination_btn btn_first" disabled aria-label="First page">
+              <button
+                class="pagination_btn btn_first"
+                disabled
+                aria-label="First page"
+              >
                 &lt;&lt;
               </button>
-              <button class="pagination_btn btn_prev" disabled aria-label="Previous page">&lt;</button>
+              <button
+                class="pagination_btn btn_prev"
+                disabled
+                aria-label="Previous page"
+              >
+                &lt;
+              </button>
               <button
                 class="pagination_btn btn_page_number pagination_btn_active"
                 aria-current="page"
               >
                 1
               </button>
-              <button class="pagination_btn btn_next" aria-label="Next page">&gt;</button>
-              <button class="pagination_btn btn_last" aria-label="Last page">&gt;&gt;</button>
+              <button class="pagination_btn btn_next" aria-label="Next page">
+                &gt;
+              </button>
+              <button class="pagination_btn btn_last" aria-label="Last page">
+                &gt;&gt;
+              </button>
             </div>
           </div>
         </div>
@@ -296,7 +320,9 @@
     <div class="overlay"></div>
     <div class="popup">
       <div class="popup_content">
-        <button type="button" class="popup_close_btn" aria-label="Close popup">x</button>
+        <button type="button" class="popup_close_btn" aria-label="Close popup">
+          x
+        </button>
         <div class="popup_content_pet">
           <img src="./img/pets-jennifer.png" alt="" class="popup_img">
           <div class="pet_info">
