@@ -49,6 +49,7 @@ header {
 
 .header_content {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding-top: 30px;
   margin: 0 40px 0 40px;
@@ -102,6 +103,12 @@ header {
 
 .dark_line {
   border-color: #000000;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 60px;
 }
 
 .nav_list {
