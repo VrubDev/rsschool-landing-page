@@ -19,7 +19,7 @@
             <span class="logo_title">Cozy House</span>
             <p>Shelter for pets in Boston</p>
           </a>
-          <button class="burger_icon" type="button">
+          <button class="burger_icon" type="button" aria-label="Open navigation menu">
             <span class="burger_icon_line dark_line"></span>
             <span class="burger_icon_line dark_line"></span>
             <span class="burger_icon_line dark_line"></span>
@@ -41,9 +41,10 @@
                 </li>
               </ul>
             </nav>
-            <button class="theme-switch-button">
+            <button class="theme-switch-button" aria-label="Toggle theme">
               <div class="theme-icon active">
                 <svg
+                  aria-hidden="true"
                   version="1.0"
                   id="Layer_1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,6 +127,7 @@
               </div>
               <div class="theme-icon">
                 <svg
+                  aria-hidden="true"
                   width="18px"
                   height="18px"
                   viewBox="0 0 24 24"
@@ -226,17 +228,18 @@
               </article>
             </div>
             <div class="pagination">
-              <button class="pagination_btn btn_first" disabled>
+              <button class="pagination_btn btn_first" disabled aria-label="First page">
                 &lt;&lt;
               </button>
-              <button class="pagination_btn btn_prev" disabled>&lt;</button>
+              <button class="pagination_btn btn_prev" disabled aria-label="Previous page">&lt;</button>
               <button
                 class="pagination_btn btn_page_number pagination_btn_active"
+                aria-current="page"
               >
                 1
               </button>
-              <button class="pagination_btn btn_next">&gt;</button>
-              <button class="pagination_btn btn_last">&gt;&gt;</button>
+              <button class="pagination_btn btn_next" aria-label="Next page">&gt;</button>
+              <button class="pagination_btn btn_last" aria-label="Last page">&gt;&gt;</button>
             </div>
           </div>
         </div>
@@ -251,11 +254,11 @@
               and suggestions
             </h2>
             <a href="mailto:email@shelter.com">
-              <img src="./img/icon-email.svg" alt="Email icon">
+              <img src="./img/icon-email.svg" alt="" aria-hidden="true">
               <span class="footer_contacts_title">email@shelter.com</span>
             </a>
             <a href="tel:+136745677554">
-              <img src="./img/icon-phone.svg" alt="Phone icon">
+              <img src="./img/icon-phone.svg" alt="" aria-hidden="true">
               <span class="footer_contacts_title">+13 674 567 75 54</span>
             </a>
           </div>
@@ -269,7 +272,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./img/pin.png" alt="Pin icon">
+              <img src="./img/pin.png" alt="" aria-hidden="true">
               <span class="footer_contacts_title"
                 >1 Central Street, Boston <br>
                 (entrance from the store)</span
@@ -280,7 +283,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./img/pin.png" alt="Pin icon">
+              <img src="./img/pin.png" alt="" aria-hidden="true">
               <span class="footer_contacts_title">18 South Park, London </span>
             </a>
           </div>
@@ -293,7 +296,7 @@
     <div class="overlay"></div>
     <div class="popup">
       <div class="popup_content">
-        <button type="button" class="popup_close_btn">x</button>
+        <button type="button" class="popup_close_btn" aria-label="Close popup">x</button>
         <div class="popup_content_pet">
           <img src="./img/pets-jennifer.png" alt="" class="popup_img">
           <div class="pet_info">
