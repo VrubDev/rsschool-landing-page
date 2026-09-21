@@ -21,8 +21,70 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--color-light-xl);
+  color: var(--color-dark-xl);
+}
+
+body,
+header,
+section,
+footer,
+.about,
+.pets,
+.help,
+.donation,
+.our_pets,
+.pet_card,
+.slider_btn,
+.filter-btn,
+.pagination_btn,
+.popup_content_pet {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
 body.noscroll {
   overflow: hidden;
+}
+
+body.dark-theme {
+  --color-primary: #f1cdb3;
+  --color-primary-light: #fddcc4;
+  --color-light-l: #201c1b;
+  --color-light-s: #2b2624;
+  --color-light-xl: #272322;
+  --color-dark-3xl: #ffffff;
+  --color-dark-xl: #e0dedc;
+  --color-dark-l: #f6f6f6;
+  --color-dark-m: #a39c99;
+  --color-dark-s: #cdcdcd;
+}
+
+body.dark-theme header:not(.header_light) .header_logo p {
+  color: #ffffff;
+}
+
+body.dark-theme header:not(.header_light) .nav_link {
+  color: #cdcdcd;
+}
+
+body.dark-theme header:not(.header_light) .nav_link:hover {
+  color: #ffffff;
+}
+
+body.dark-theme .start_screen_title {
+  color: #ffffff;
+}
+
+body.dark-theme .start_screen_content_left p {
+  color: #cdcdcd;
+}
+
+body.dark-theme .footer_section_title {
+  color: #ffffff;
 }
 
 a {
@@ -156,7 +218,11 @@ header {
 }
 
 .theme-switch-button:hover {
-  border-color: var(--color-dark-s);
+  border-color: var(--color-primary-light);
+}
+
+body.dark-theme .theme-switch-button {
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .theme-icon {
@@ -168,9 +234,11 @@ header {
   border-radius: 50%;
   color: var(--color-dark-m);
   transition: all 0.3s ease;
+  background-color: transparent;
 }
 
-.theme-icon.active {
+body:not(.dark-theme) .theme-icon:first-child,
+body.dark-theme .theme-icon:last-child {
   background-color: var(--color-primary);
   color: #262425;
 }
@@ -191,6 +259,10 @@ header {
     background-color: var(--color-dark-3xl);
     transition: right 0.3s ease-in-out;
     z-index: 15;
+  }
+
+  body.dark-theme .header_nav {
+    background-color: var(--color-light-s);
   }
 
   .nav_list {
@@ -228,9 +300,12 @@ header {
 
 .start_screen {
   padding-top: 180px;
-  background-image:
-    url(./img/noise_transparent@2x.png),
-    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
+  background: radial-gradient(100% 215.42% at 0% 0%, #7a6250 0%, #3d3430 100%);
+  transition: background 0.3s ease;
+}
+
+body.dark-theme .start_screen {
+  background: radial-gradient(100% 215.42% at 0% 0%, #221f1e 0%, #11100f 100%);
 }
 
 .start_screen_content {
@@ -328,6 +403,10 @@ header {
 }
 
 /* About */
+
+.about {
+  background-color: var(--color-light-xl);
+}
 
 .about_content {
   display: flex;
@@ -481,6 +560,7 @@ header {
 .pet_card:hover .pet_card_btn {
   background: var(--color-primary-light);
   border: 2px solid var(--color-primary-light);
+  color: #292929;
 }
 
 .btn_primary {
@@ -489,7 +569,7 @@ header {
   padding: 15px 45px;
   border-radius: 100px;
   background: var(--color-primary);
-  color: var(--color-dark-3xl);
+  color: #292929;
 
   font-family: "Georgia";
   font-size: 17px;
@@ -501,6 +581,7 @@ header {
 
 .btn_primary:hover {
   background-color: var(--color-primary-light);
+  color: #292929;
 }
 
 .slider_btn {
@@ -523,6 +604,15 @@ header {
 .slider_btn:hover {
   background-color: var(--color-primary-light);
   border-color: var(--color-primary-light);
+}
+
+.slider_btn svg path {
+  fill: var(--color-dark-3xl);
+  transition: fill 0.3s ease;
+}
+
+.slider_btn:hover svg path {
+  fill: #292929;
 }
 
 @media (max-width: 1279px) {
@@ -580,6 +670,10 @@ header {
 }
 
 /* Help */
+.help {
+  background-color: var(--color-light-xl);
+}
+
 .help_content {
   display: flex;
   flex-direction: column;
@@ -707,7 +801,7 @@ header {
 }
 
 .credit_card_numbers {
-  color: var(--color-dark-l);
+  color: #292929;
 
   font-family: "Georgia";
   font-size: 20px;
@@ -735,7 +829,8 @@ header {
   }
 }
 
-@media (max-width: 745px) {}
+@media (max-width: 745px) {
+}
 
 @media (max-width: 550px) {
   .donation_content {
@@ -781,10 +876,12 @@ header {
 /* Footer */
 
 footer {
-  background-color: #1a1a1c;
-  background-image:
-    url(./img/noise_transparent@2x.png),
-    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
+  background: radial-gradient(100% 215.42% at 0% 0%, #7a6250 0%, #3d3430 100%);
+  transition: background 0.3s ease;
+}
+
+body.dark-theme footer {
+  background: radial-gradient(100% 215.42% at 0% 0%, #221f1e 0%, #11100f 100%);
 }
 
 .footer_content {
@@ -963,7 +1060,7 @@ footer {
 }
 
 .popup_title {
-  color: #000000;
+  color: var(--color-dark-3xl);
   font-family: "Georgia";
   font-size: 35px;
   font-weight: 400;
@@ -973,7 +1070,7 @@ footer {
 }
 
 .popup_subtitle {
-  color: #000000;
+  color: var(--color-dark-3xl);
   font-family: "Georgia";
   font-size: 20px;
   font-weight: 400;
@@ -983,7 +1080,7 @@ footer {
 }
 
 .popup_description {
-  color: #000000;
+  color: var(--color-dark-xl);
   font-family: "Georgia";
   font-size: 15px;
   font-weight: 400;
@@ -1004,7 +1101,7 @@ footer {
   font-weight: 400;
   line-height: 110%;
   letter-spacing: 0.06em;
-  color: #000000;
+  color: var(--color-dark-3xl);
   padding-left: 15px;
   position: relative;
 }
@@ -1033,7 +1130,7 @@ footer {
   border-radius: 50%;
   font-family: "Georgia";
   font-size: 20px;
-  color: #292929;
+  color: var(--color-dark-3xl);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -1163,6 +1260,35 @@ footer {
   color: var(--color-light-s);
 }
 
+body.dark-theme .header_light {
+  background-color: var(--color-light-l);
+}
+
+body.dark-theme .header_light span.logo_title {
+  color: var(--color-primary);
+}
+
+body.dark-theme .header_light .header_logo p {
+  color: var(--color-dark-s);
+}
+
+body.dark-theme .header_light .nav_link {
+  color: var(--color-dark-s);
+}
+
+body.dark-theme .header_light .nav_link:hover {
+  color: var(--color-primary-light);
+}
+
+body.dark-theme .header_light .nav_link_active {
+  color: var(--color-primary);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+body.dark-theme .header_light .burger_icon_line.dark_line {
+  border-color: var(--color-primary);
+}
+
 .our_pets {
   background: var(--color-light-l);
   padding-top: 120px;
@@ -1214,6 +1340,7 @@ footer {
 .filter-btn.active {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
+  color: #292929;
   box-shadow: 0 4px 14px rgba(241, 205, 179, 0.45);
 }
 
@@ -1259,6 +1386,7 @@ footer {
 .pagination_btn_active {
   background-color: var(--color-primary, #f1cdb3);
   border: 2px solid var(--color-primary, #f1cdb3);
+  color: #292929;
   cursor: default;
 }
 
@@ -1267,6 +1395,11 @@ footer {
   color: #cdcdcd;
   cursor: default;
   pointer-events: none;
+}
+
+body.dark-theme .pagination_btn:disabled {
+  border-color: #545454;
+  color: #545454;
 }
 
 @media (max-width: 1030px) {
@@ -1301,7 +1434,6 @@ footer {
 }
 
 @media (max-width: 640px) {
-
   .pet_card:nth-child(4),
   .pet_card:nth-child(5),
   .pet_card:nth-child(6) {
