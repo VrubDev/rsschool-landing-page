@@ -518,13 +518,21 @@ body.dark-theme .start_screen {
 .pet_card {
   display: flex;
   flex-direction: column;
-  gap: 30px;
   width: 270px;
-  height: 435px;
+  height: 520px;
   align-items: center;
   border-radius: 9px;
   background: var(--color-light-s);
   transition: all 0.3s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pet-card__img {
+  width: 270px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 9px 9px 0 0;
 }
 
 .card_title {
@@ -534,10 +542,44 @@ body.dark-theme .start_screen {
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0.06em;
+  margin-top: 18px;
+}
+
+.card_meta {
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #a18a7a;
+  margin-top: 8px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+body.dark-theme .card_meta {
+  color: var(--color-primary);
+}
+
+.card_description {
+  font-family: "Arial", sans-serif;
+  font-size: 13px;
+  line-height: 150%;
+  color: var(--color-dark-l);
+  text-align: center;
+  margin-top: 16px;
+  padding: 0 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+body.dark-theme .card_description {
+  color: var(--color-dark-m);
 }
 
 .pet_card_btn {
-  padding: 15px 45px;
+  padding: 10px 42px;
   border: 2px solid var(--color-primary);
   border-radius: 100px;
   background: var(--color-light-s);
@@ -549,7 +591,8 @@ body.dark-theme .start_screen {
   line-height: 130%;
   letter-spacing: 0.06em;
   cursor: pointer;
-  margin-bottom: 30px;
+  margin-top: auto;
+  margin-bottom: 20px;
   transition: background-color 0.3s ease;
 }
 

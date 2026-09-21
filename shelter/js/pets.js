@@ -122,6 +122,8 @@ function renderCards() {
           class="pet-card__img"
         >
         <h2 class="card_title">${pet.name}</h2>
+        <p class="card_meta">${pet.type} — ${pet.breed} • ${pet.age}</p>
+        <p class="card_description">${pet.description}</p>
         <button class="pet_card_btn">Learn more</button>
       </article>
     `;
