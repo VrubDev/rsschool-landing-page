@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our pets</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+      rel="shortcut icon"
+      href="./img/icon-sleeping-area.svg"
+      type="image/x-icon"
+    >
+  </head>
+
+  <body>
+    <header class="header_light">
+      <div class="wrapper">
+        <div class="header_content">
+          <a href="./main.html" class="header_logo">
+            <span class="logo_title">Cozy House</span>
+            <p>Shelter for pets in Boston</p>
+          </a>
+          <button
+            class="burger_icon"
+            type="button"
+            aria-label="Open navigation menu"
+          >
+            <span class="burger_icon_line dark_line"></span>
+            <span class="burger_icon_line dark_line"></span>
+            <span class="burger_icon_line dark_line"></span>
+          </button>
+          <div class="header-right">
+            <nav class="header_nav">
+              <ul class="nav_list">
+                <li class="nav_item">
+                  <a class="nav_link" href="./main.html">About the shelter</a>
+                </li>
+                <li class="nav_item">
+                  <a class="nav_link nav_link_active" href="">Our pets</a>
+                </li>
+                <li class="nav_item">
+                  <a class="nav_link" href="main.html#help">Help the shelter</a>
+                </li>
+                <li class="nav_item">
+                  <a class="nav_link" href="#contacts">Contacts</a>
+                </li>
+              </ul>
+            </nav>
+            <button class="theme-switch-button" aria-label="Toggle theme">
+              <span class="theme-icon active">
+                <svg
+                  aria-hidden="true"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="22px"
+                  height="22px"
+                  viewBox="0 0 64 64"
+                  enable-background="new 0 0 64 64"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <circle
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      cx="32.003"
+                      cy="32.005"
+                      r="16.001"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      d="M12.001,31.997c0-2.211-1.789-4-4-4H4c-2.211,0-4,1.789-4,4
+ 		s1.789,4,4,4h4C10.212,35.997,12.001,34.208,12.001,31.997z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      d="M12.204,46.139l-2.832,2.833c-1.563,1.562-1.563,4.094,0,5.656
+ 		c1.562,1.562,4.094,1.562,5.657,0l2.833-2.832c1.562-1.562,1.562-4.095,0-5.657C16.298,44.576,13.767,44.576,12.204,46.139z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      d="M32.003,51.999c-2.211,0-4,1.789-4,4V60c0,2.211,1.789,4,4,4
+ 		s4-1.789,4-4l-0.004-4.001C36.003,53.788,34.21,51.999,32.003,51.999z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      d="M51.798,46.143c-1.559-1.566-4.091-1.566-5.653-0.004
+ 		s-1.562,4.095,0,5.657l2.829,2.828c1.562,1.57,4.094,1.562,5.656,0s1.566-4.09,0-5.656L51.798,46.143z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      d="M60.006,27.997l-4.009,0.008
+ 		c-2.203-0.008-3.992,1.781-3.992,3.992c-0.008,2.211,1.789,4,3.992,4h4.001c2.219,0.008,4-1.789,4-4
+ 		C64.002,29.79,62.217,27.997,60.006,27.997z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      d="M51.798,17.859l2.828-2.829c1.574-1.566,1.562-4.094,0-5.657
+ 		c-1.559-1.567-4.09-1.567-5.652-0.004l-2.829,2.836c-1.562,1.555-1.562,4.086,0,5.649C47.699,19.426,50.239,19.418,51.798,17.859z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      d="M32.003,11.995c2.207,0.016,4-1.789,4-3.992v-4
+ 		c0-2.219-1.789-4-4-4c-2.211-0.008-4,1.781-4,3.993l0.008,4.008C28.003,10.206,29.792,11.995,32.003,11.995z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="currentColor"
+                      d="M12.212,17.855c1.555,1.562,4.079,1.562,5.646-0.004
+ 		c1.574-1.551,1.566-4.09,0.008-5.649l-2.829-2.828c-1.57-1.571-4.094-1.559-5.657,0c-1.575,1.559-1.575,4.09-0.012,5.653
+ 		L12.212,17.855z"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <span class="theme-icon">
+                <svg
+                  aria-hidden="true"
+                  width="18px"
+                  height="18px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.0557 3.59974C12.2752 3.2813 12.2913 2.86484 12.0972 2.53033C11.9031 2.19582 11.5335 2.00324 11.1481 2.03579C6.02351 2.46868 2 6.76392 2 12C2 17.5228 6.47715 22 12 22C17.236 22 21.5313 17.9764 21.9642 12.8518C21.9967 12.4664 21.8041 12.0968 21.4696 11.9027C21.1351 11.7086 20.7187 11.7248 20.4002 11.9443C19.4341 12.6102 18.2641 13 17 13C13.6863 13 11 10.3137 11 6.99996C11 5.73589 11.3898 4.56587 12.0557 3.59974Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="our_pets">
+        <div class="wrapper">
+          <div class="our_pets_content">
+            <h1 class="section_title">
+              Our friends who <br>
+              are looking for a house
+            </h1>
+            <div class="filter-controls">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="dog">Dogs</button>
+              <button class="filter-btn" data-filter="cat">Cats</button>
+              <button class="filter-btn">Puppies/Kittens</button>
+            </div>
+            <div class="pets">
+              <article class="pet_card">
+                <img
+                  src="./img/pets-katrine.png"
+                  alt="Katrine the grey cat"
+                  class="pet-card__img"
+                >
+                <h2 class="card_title">Katrine</h2>
+                <p class="card_meta">Cat — British Shorthair • 6 months</p>
+                <p class="card_description">
+                  Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes.
+                </p>
+                <button class="pet_card_btn">Learn more</button>
+              </article>
+              <article class="pet_card">
+                <img
+                  src="./img/pets-jennifer.png"
+                  alt="Jennifer the puppy"
+                  class="pet-card__img"
+                >
+                <h2 class="card_title">Jennifer</h2>
+                <p class="card_meta">Dog — Labrador • 2 months</p>
+                <p class="card_description">
+                  Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside.
+                </p>
+                <button class="pet_card_btn">Learn more</button>
+              </article>
+              <article class="pet_card">
+                <img
+                  src="./img/pets-woody.png"
+                  alt="Woody the golden retriever"
+                  class="pet-card__img"
+                >
+                <h2 class="card_title">Woody</h2>
+                <p class="card_meta">Dog — Golden Retriever • 3 years 6 months</p>
+                <p class="card_description">
+                  Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot.
+                </p>
+                <button class="pet_card_btn">Learn more</button>
+              </article>
+              <article class="pet_card">
+                <img
+                  src="./img/pets-sophia.png"
+                  alt="Sophia the puppy"
+                  class="pet-card__img"
+                >
+                <h2 class="card_title">Sophia</h2>
+                <p class="card_meta">Dog — Shih tzu • 1 month</p>
+                <p class="card_description">
+                  Sophia here and I'm looking for my forever home to live out the best years of my life. I am full of energy. Everyday I'm learning new things.
+                </p>
+                <button class="pet_card_btn">Learn more</button>
+              </article>
+              <article class="pet_card">
+                <img
+                  src="./img/pets-timmy.png"
+                  alt="Timmy cat"
+                  class="pet-card__img"
+                >
+                <h2 class="card_title">Timmy</h2>
+                <p class="card_meta">Cat — British Shorthair • 2 years 3 months</p>
+                <p class="card_description">
+                  Timmy is an adorable grey british shorthair male. He loves to play and snuggle. He is neutered and up to date on age appropriate vaccinations.
+                </p>
+                <button class="pet_card_btn">Learn more</button>
+              </article>
+              <article class="pet_card">
+                <img
+                  src="./img/pets-charly.png"
+                  alt="Charly dog"
+                  class="pet-card__img"
+                >
+                <h2 class="card_title">Charly</h2>
+                <p class="card_meta">Dog — Jack Russell Terrier • 8 years</p>
+                <p class="card_description">
+                  This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home.
+                </p>
+                <button class="pet_card_btn">Learn more</button>
+              </article>
+              <article class="pet_card">
+                <img
+                  src="./img/pets-scarlet.png"
+                  alt="Scarlet puppy"
+                  class="pet-card__img"
+                >
+                <h2 class="card_title">Scarlet</h2>
+                <p class="card_meta">Dog — Jack Russell Terrier • 3 months</p>
+                <p class="card_description">
+                  Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful dog.
+                </p>
+                <button class="pet_card_btn">Learn more</button>
+              </article>
+              <article class="pet_card">
+                <img
+                  src="./img/pets-Freddie.png"
+                  alt="Freddie cat"
+                  class="pet-card__img"
+                >
+                <h2 class="card_title">Freddie</h2>
+                <p class="card_meta">Cat — British Shorthair • 2 months</p>
+                <p class="card_description">
+                  Freddie is a little shy at first, but very sweet when he warms up. He likes playing with shoe strings and bottle caps. Quick to learn daily life.
+                </p>
+                <button class="pet_card_btn">Learn more</button>
+              </article>
+            </div>
+            <div class="pagination">
+              <button
+                class="pagination_btn btn_first"
+                disabled
+                aria-label="First page"
+              >
+                &lt;&lt;
+              </button>
+              <button
+                class="pagination_btn btn_prev"
+                disabled
+                aria-label="Previous page"
+              >
+                &lt;
+              </button>
+              <button
+                class="pagination_btn btn_page_number pagination_btn_active"
+                aria-current="page"
+              >
+                1
+              </button>
+              <button class="pagination_btn btn_next" aria-label="Next page">
+                &gt;
+              </button>
+              <button class="pagination_btn btn_last" aria-label="Last page">
+                &gt;&gt;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="contacts">
+      <div class="wrapper">
+        <div class="footer_content">
+          <div class="footer_contacts">
+            <h2 class="section_title footer_section_title">
+              For questions <br>
+              and suggestions
+            </h2>
+            <a href="mailto:email@shelter.com">
+              <img src="./img/icon-email.svg" alt="" aria-hidden="true">
+              <span class="footer_contacts_title">email@shelter.com</span>
+            </a>
+            <a href="tel:+136745677554">
+              <img src="./img/icon-phone.svg" alt="" aria-hidden="true">
+              <span class="footer_contacts_title">+13 674 567 75 54</span>
+            </a>
+          </div>
+          <div class="footer_locations">
+            <h2 class="section_title footer_section_title">
+              We are waiting <br>
+              for your visit
+            </h2>
+            <a
+              href="https://www.google.com/maps/place/1+Central+St,+Boston,+MA+02109,+%D0%A1%D0%A8%D0%90/@42.358552,-71.0573012,17z/data=!3m1!4b1!4m5!3m4!1s0x89e370868bc2ce7b:0x82fa7db94f5fea9e!8m2!3d42.358552!4d-71.0547263?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="./img/pin.png" alt="" aria-hidden="true">
+              <span class="footer_contacts_title"
+                >1 Central Street, Boston <br>
+                (entrance from the store)</span
+              >
+            </a>
+            <a
+              href="https://www.google.com/maps/place/%D0%9F%D0%B0%D1%80%D0%BA+%D0%AE%D0%B3/@51.4690816,-0.1970754,17z/data=!4m14!1m7!3m6!1s0x48760f79376fa0e3:0x202ac3af5c1ea4ec!2z0J_QsNGA0Log0K7Qsw!8m2!3d51.4690816!4d-0.1944951!16s%2Fm%2F0cc6kk9!3m5!1s0x48760f79376fa0e3:0x202ac3af5c1ea4ec!8m2!3d51.4690816!4d-0.1944951!16s%2Fm%2F0cc6kk9?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="./img/pin.png" alt="" aria-hidden="true">
+              <span class="footer_contacts_title">18 South Park, London </span>
+            </a>
+          </div>
+          <div class="footer_img">
+            <img src="./img/footer-puppy.png" alt="Gold puppy">
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="overlay"></div>
+    <div class="popup">
+      <div class="popup_content">
+        <button type="button" class="popup_close_btn" aria-label="Close popup">
+          x
+        </button>
+        <div class="popup_content_pet">
+          <img src="./img/pets-jennifer.png" alt="" class="popup_img">
+          <div class="pet_info">
+            <h3 class="popup_title">Jennifer</h3>
+            <h4 class="popup_subtitle">Dog - Labrador</h4>
+            <p class="popup_description">
+              Jennifer is a sweet 2 months old Labrador that is patiently
+              waiting to find a new forever home. This girl really enjoys being
+              able to go outside to run and play, but won't hesitate to play up
+              a storm in the house if she has all of her favorite toys.
+            </p>
+            <ul class="popup_list">
+              <li>
+                <strong>Age:</strong> <span class="popup_age">2 months</span>
+              </li>
+              <li>
+                <strong>Inoculations:</strong>
+                <span class="popup_inoculations">none</span>
+              </li>
+              <li>
+                <strong>Diseases:</strong>
+                <span class="popup_diseases">none</span>
+              </li>
+              <li>
+                <strong>Parasites:</strong>
+                <span class="popup_parasites">none</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="./js/pets.js"></script>
+  </body>
+</html>
