@@ -1,6 +1,7 @@
 const burgerIcon = document.querySelector(".burger_icon");
 const burgerMenu = document.querySelector(".header_nav");
 const navLinks = document.querySelectorAll(".nav_link");
+const themeSwitch = document.querySelector(".theme-switch-button");
 const overlay = document.querySelector(".overlay");
 
 const popupWrapper = document.querySelector(".popup");
@@ -121,6 +122,8 @@ function renderCards() {
           class="pet-card__img"
         >
         <h2 class="card_title">${pet.name}</h2>
+        <p class="card_meta">${pet.type} — ${pet.breed} • ${pet.age}</p>
+        <p class="card_description">${pet.description}</p>
         <button class="pet_card_btn">Learn more</button>
       </article>
     `;
@@ -273,4 +276,16 @@ function fillPopupData(petObject) {
     popupInoculations.innerText = petObject.inoculations.join(", ");
   if (popupDiseases) popupDiseases.innerText = petObject.diseases.join(", ");
   if (popupParasites) popupParasites.innerText = petObject.parasites.join(", ");
+}
+
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-theme");
+}
+
+if (themeSwitch) {
+  themeSwitch.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark-theme");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
 }

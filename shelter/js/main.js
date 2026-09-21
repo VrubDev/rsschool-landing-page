@@ -1,6 +1,7 @@
 const burgerIcon = document.querySelector(".burger_icon");
 const burgerMenu = document.querySelector(".header_nav");
 const navLinks = document.querySelectorAll(".nav_link");
+const themeSwitch = document.querySelector(".theme-switch-button");
 const overlay = document.querySelector(".overlay");
 
 const popupWrapper = document.querySelector(".popup");
@@ -117,4 +118,15 @@ function fillPopupData(petObject) {
     popupInoculations.innerText = petObject.inoculations.join(", ");
   if (popupDiseases) popupDiseases.innerText = petObject.diseases.join(", ");
   if (popupParasites) popupParasites.innerText = petObject.parasites.join(", ");
+}
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-theme");
+}
+
+if (themeSwitch) {
+  themeSwitch.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark-theme");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
 }
