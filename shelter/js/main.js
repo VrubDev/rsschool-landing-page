@@ -120,6 +120,17 @@ function fillPopupData(petObject) {
   if (popupParasites) popupParasites.innerText = petObject.parasites.join(", ");
 }
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    if (popupWrapper && popupWrapper.classList.contains("open")) {
+      closePopup();
+    }
+    if (burgerMenu && burgerMenu.classList.contains("open")) {
+      closeMenu();
+    }
+  }
+});
+
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-theme");
 }
