@@ -62,6 +62,17 @@ if (popupWrapper) {
   });
 }
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    if (popupWrapper && popupWrapper.classList.contains("open")) {
+      closePopup();
+    }
+    if (burgerMenu && burgerMenu.classList.contains("open")) {
+      closeMenu();
+    }
+  }
+});
+
 let allPets = [];
 let longPetsList = [];
 let currentPage = 0;
@@ -277,7 +288,6 @@ function fillPopupData(petObject) {
   if (popupDiseases) popupDiseases.innerText = petObject.diseases.join(", ");
   if (popupParasites) popupParasites.innerText = petObject.parasites.join(", ");
 }
-
 
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-theme");
