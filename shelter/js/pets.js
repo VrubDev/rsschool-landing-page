@@ -4,6 +4,12 @@ const navLinks = document.querySelectorAll(".nav_link");
 const themeSwitch = document.querySelector(".theme-switch-button");
 const overlay = document.querySelector(".overlay");
 
+const filterButtons = document.querySelectorAll(".filter-btn");
+const allPetsButton = document.querySelector(".all-pets-btn");
+const dogsButton = document.querySelector(".dogs-btn");
+const catsButton = document.querySelector(".cats-btn");
+const babyButton = document.querySelector(".baby-btn");
+
 const popupWrapper = document.querySelector(".popup");
 const popupCloseBtn = document.querySelector(".popup_close_btn");
 
@@ -75,6 +81,7 @@ document.addEventListener("keydown", (event) => {
 
 let allPets = [];
 let longPetsList = [];
+let currentPetsList = [];
 let currentPage = 0;
 
 function shuffle(array) {
@@ -112,7 +119,7 @@ function getPageContent() {
   let start = currentPage * cardsPerPage;
   let end = start + cardsPerPage;
 
-  return longPetsList.slice(start, end);
+  return currentPetsList.slice(start, end);
 }
 
 function renderCards() {
@@ -143,7 +150,7 @@ function renderCards() {
 
 function getMaxPages() {
   const cardsPerPage = getCardsPerPage();
-  return 48 / cardsPerPage;
+  return Math.ceil(currentPetsList.length / cardsPerPage);
 }
 
 function updatePaginationStatus() {
@@ -167,6 +174,47 @@ function updatePaginationStatus() {
     if (btnNext) btnNext.disabled = false;
     if (btnLast) btnLast.disabled = false;
   }
+}
+
+if (allPetsButton) {
+  allPetsButton.addEventListener("click", () => {
+    currentPetsList = longPetsList;
+    currentPage = 0;
+    renderCards();
+    updatePaginationStatus();
+  });
+}
+
+if (dogsButton) {
+  dogsButton.addEventListener("click", () => {
+    const dogsList = longPetsList.filter((pet) => pet.type === "Dog");
+    currentPetsList = dogsList;
+    currentPage = 0;
+    renderCards();
+    updatePaginationStatus();
+  });
+}
+
+if (catsButton) {
+  catsButton.addEventListener("click", () => {
+    const catsList = longPetsList.filter((pet) => pet.type === "Cat");
+    currentPetsList = catsList;
+    currentPage = 0;
+    renderCards();
+    updatePaginationStatus();
+  });
+}
+
+if (babyButton) {
+  babyButton.addEventListener("click", () => {
+    const babyList = longPetsList.filter(
+      (pet) => pet.age.includes("month") && !pet.age.includes("year"),
+    );
+    currentPetsList = babyList;
+    currentPage = 0;
+    renderCards();
+    updatePaginationStatus();
+  });
 }
 
 if (btnNext) {
@@ -211,8 +259,6 @@ async function loadPetsData() {
   const response = await fetch("./pets.json");
   allPets = await response.json();
 
-  console.log("Данные внутри функции:", allPets);
-
   for (let i = 0; i < 6; i++) {
     longPetsList.push(...allPets);
   }
@@ -223,8 +269,9 @@ async function loadPetsData() {
     longPetsList = shuffle(longPetsList);
   }
 
-  console.log(longPetsList);
+  currentPetsList = longPetsList;
   renderCards();
+  updatePaginationStatus();
 }
 
 loadPetsData();
