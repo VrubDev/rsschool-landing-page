@@ -176,10 +176,16 @@ function updatePaginationStatus() {
   }
 }
 
+function setActiveFilterButton(activeBtn) {
+  filterButtons.forEach((btn) => btn.classList.remove("active"));
+  if (activeBtn) activeBtn.classList.add("active");
+}
+
 if (allPetsButton) {
   allPetsButton.addEventListener("click", () => {
     currentPetsList = longPetsList;
     currentPage = 0;
+    setActiveFilterButton(allPetsButton);
     renderCards();
     updatePaginationStatus();
   });
@@ -190,6 +196,7 @@ if (dogsButton) {
     const dogsList = longPetsList.filter((pet) => pet.type === "Dog");
     currentPetsList = dogsList;
     currentPage = 0;
+    setActiveFilterButton(dogsButton);
     renderCards();
     updatePaginationStatus();
   });
@@ -200,6 +207,7 @@ if (catsButton) {
     const catsList = longPetsList.filter((pet) => pet.type === "Cat");
     currentPetsList = catsList;
     currentPage = 0;
+    setActiveFilterButton(catsButton);
     renderCards();
     updatePaginationStatus();
   });
@@ -212,6 +220,7 @@ if (babyButton) {
     );
     currentPetsList = babyList;
     currentPage = 0;
+    setActiveFilterButton(babyButton);
     renderCards();
     updatePaginationStatus();
   });
