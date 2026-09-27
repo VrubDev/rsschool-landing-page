@@ -524,6 +524,8 @@ body.dark-theme .start_screen {
   display: flex;
   flex-direction: column;
   width: 270px;
+  min-width: 270px;
+  flex-shrink: 0;
   height: 520px;
   align-items: center;
   border-radius: 9px;

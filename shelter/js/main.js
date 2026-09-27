@@ -4,6 +4,10 @@ const navLinks = document.querySelectorAll(".nav_link");
 const themeSwitch = document.querySelector(".theme-switch-button");
 const overlay = document.querySelector(".overlay");
 
+const sliderTrack = document.querySelector(".slider_track");
+const btnPrev = document.querySelector(".slider_btn_prev");
+const btnNext = document.querySelector(".slider_btn_next");
+
 const popupWrapper = document.querySelector(".popup");
 const popupCloseBtn = document.querySelector(".popup_close_btn");
 
@@ -58,10 +62,41 @@ if (popupWrapper) {
 
 let allPets = [];
 
+function createCard(pet) {
+  const card = document.createElement("article");
+  card.className = "pet_card";
+  card.dataset.name = pet.name;
+
+  card.innerHTML = `
+    <img
+      src="${pet.img}"
+      alt="${pet.name} the ${pet.type}"
+      class="pet-card__img"
+    >
+    <h3 class="card_title">${pet.name}</h3>
+    <p class="card_meta">${pet.type} — ${pet.breed} • ${pet.age}</p>
+    <p class="card_description">${pet.description}</p>
+    <button class="pet_card_btn">Learn more</button>
+  `;
+
+  return card;
+}
+
+function initSlider() {
+  if (!sliderTrack) return;
+  sliderTrack.innerHTML = "";
+
+  allPets.forEach((pet) => {
+    const card = createCard(pet);
+    sliderTrack.appendChild(card);
+  });
+}
+
 async function loadPetsData() {
   const response = await fetch("./pets.json");
   allPets = await response.json();
   console.log("Данные внутри функции:", allPets);
+  initSlider();
 }
 
 loadPetsData();
