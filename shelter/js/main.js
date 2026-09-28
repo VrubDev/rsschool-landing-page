@@ -175,6 +175,47 @@ document.addEventListener("click", (event) => {
   }
 });
 
+const BASE_PET_PRICE = 25;
+
+function updateModalTotal() {
+  const activeSize = document.querySelector(".p_size.active");
+  const sizePrice = activeSize ? Number(activeSize.dataset.price) : 0;
+
+  let addonsPrice = 0;
+  document.querySelectorAll(".p_addon.active").forEach((btn) => {
+    addonsPrice += Number(btn.dataset.price);
+  });
+
+  const total = BASE_PET_PRICE + sizePrice + addonsPrice;
+  const totalEl = document.getElementById("popup_total");
+  if (totalEl) totalEl.textContent = `$${total}.00`;
+}
+
+document.querySelectorAll(".p_size").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".p_size").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    updateModalTotal();
+  });
+});
+
+document.querySelectorAll(".p_addon").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+    updateModalTotal();
+  });
+});
+
+function resetModalParams() {
+  document.querySelectorAll(".p_size").forEach((btn, index) => {
+    btn.classList.toggle("active", index === 0);
+  });
+  document.querySelectorAll(".p_addon").forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  updateModalTotal();
+}
+
 function openPopup() {
   if (popupWrapper) popupWrapper.classList.add("open");
   document.body.classList.add("noscroll");
@@ -185,6 +226,7 @@ function setupAndOpenPopup(name) {
 
   if (targetPet) {
     fillPopupData(targetPet);
+    resetModalParams();
     openPopup();
   }
 }
