@@ -518,6 +518,7 @@ body.dark-theme .start_screen {
 .slider_track {
   display: flex;
   gap: 90px;
+  transition: transform 0.4s ease-in-out;
 }
 
 .pet_card {
@@ -704,14 +705,18 @@ body.dark-theme .card_description {
   }
 
   .slider_wrapper {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 270px;
     column-gap: 80px;
     row-gap: 20px;
   }
 
   .slider_window {
     order: -1;
+    width: 270px;
+    margin: 0;
   }
 }
 
