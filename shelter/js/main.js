@@ -61,6 +61,7 @@ if (popupWrapper) {
 }
 
 let allPets = [];
+let currentIndex = 0;
 
 function createCard(pet) {
   const card = document.createElement("article");
@@ -82,6 +83,31 @@ function createCard(pet) {
   return card;
 }
 
+function getStepSize() {
+  const screenWidth = window.innerWidth;
+  if (screenWidth >= 1280) {
+    return 360;
+  } else if (screenWidth >= 768) {
+    return 310;
+  } else {
+    return 290;
+  }
+}
+
+function getVisibleCount() {
+  const screenWidth = window.innerWidth;
+  if (screenWidth >= 1280) return 3;
+  if (screenWidth >= 768) return 2;
+  return 1;
+}
+
+function updateSlider() {
+  if (!sliderTrack) return;
+  const step = getStepSize();
+  const moveAmount = currentIndex * step;
+  sliderTrack.style.transform = `translateX(-${moveAmount}px)`;
+}
+
 function initSlider() {
   if (!sliderTrack) return;
   sliderTrack.innerHTML = "";
@@ -90,7 +116,42 @@ function initSlider() {
     const card = createCard(pet);
     sliderTrack.appendChild(card);
   });
+
+  currentIndex = 0;
+  updateSlider();
 }
+
+if (btnNext) {
+  btnNext.addEventListener("click", () => {
+    const maxIndex = allPets.length - getVisibleCount();
+    if (currentIndex >= maxIndex) {
+      currentIndex = 0;
+    } else {
+      currentIndex++;
+    }
+    updateSlider();
+  });
+}
+
+if (btnPrev) {
+  btnPrev.addEventListener("click", () => {
+    const maxIndex = allPets.length - getVisibleCount();
+    if (currentIndex <= 0) {
+      currentIndex = maxIndex;
+    } else {
+      currentIndex--;
+    }
+    updateSlider();
+  });
+}
+
+window.addEventListener("resize", () => {
+  const maxIndex = Math.max(0, allPets.length - getVisibleCount());
+  if (currentIndex > maxIndex) {
+    currentIndex = maxIndex;
+  }
+  updateSlider();
+});
 
 async function loadPetsData() {
   const response = await fetch("./pets.json");
