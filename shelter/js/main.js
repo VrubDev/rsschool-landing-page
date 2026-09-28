@@ -11,9 +11,12 @@ const btnNext = document.querySelector(".slider_btn_next");
 const popupWrapper = document.querySelector(".popup");
 const popupCloseBtn = document.querySelector(".popup_close_btn");
 
+const header = document.querySelector("header");
+
 function closeMenu() {
   if (burgerMenu) burgerMenu.classList.remove("open");
   if (burgerIcon) burgerIcon.classList.remove("open");
+  if (header) header.classList.remove("open");
   if (overlay && (!popupWrapper || !popupWrapper.classList.contains("open"))) {
     overlay.classList.remove("open");
   }
@@ -32,6 +35,7 @@ if (burgerIcon) {
   burgerIcon.addEventListener("click", () => {
     if (burgerMenu) burgerMenu.classList.toggle("open");
     burgerIcon.classList.toggle("open");
+    if (header) header.classList.toggle("open");
     if (overlay) overlay.classList.toggle("open");
     document.body.classList.toggle("noscroll");
   });
@@ -146,6 +150,9 @@ if (btnPrev) {
 }
 
 window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    closeMenu();
+  }
   const maxIndex = Math.max(0, allPets.length - getVisibleCount());
   if (currentIndex > maxIndex) {
     currentIndex = maxIndex;

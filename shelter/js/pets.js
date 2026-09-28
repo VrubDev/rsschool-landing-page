@@ -19,9 +19,12 @@ const pageNumberElement = document.querySelector(".btn_page_number");
 const btnNext = document.querySelector(".btn_next");
 const btnLast = document.querySelector(".btn_last");
 
+const header = document.querySelector("header");
+
 function closeMenu() {
   if (burgerMenu) burgerMenu.classList.remove("open");
   if (burgerIcon) burgerIcon.classList.remove("open");
+  if (header) header.classList.remove("open");
   if (overlay && (!popupWrapper || !popupWrapper.classList.contains("open"))) {
     overlay.classList.remove("open");
   }
@@ -40,6 +43,7 @@ if (burgerIcon) {
   burgerIcon.addEventListener("click", () => {
     if (burgerMenu) burgerMenu.classList.toggle("open");
     burgerIcon.classList.toggle("open");
+    if (header) header.classList.toggle("open");
     if (overlay) overlay.classList.toggle("open");
     document.body.classList.toggle("noscroll");
   });
@@ -286,6 +290,9 @@ async function loadPetsData() {
 loadPetsData();
 
 window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    closeMenu();
+  }
   currentPage = 0;
   renderCards();
   updatePaginationStatus();
