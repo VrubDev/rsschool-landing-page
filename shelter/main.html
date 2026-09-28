@@ -234,51 +234,11 @@
                 </svg>
               </button>
 
-              <div class="slider_track">
-                <article class="pet_card">
-                  <img
-                    src="./img/pets-katrine.png"
-                    alt="Katrine the grey cat"
-                    class="pet-card__img"
-                  >
-                  <h3 class="card_title">Katrine</h3>
-                  <p class="card_meta">Cat — British Shorthair • 6 months</p>
-                  <p class="card_description">
-                    Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes.
-                  </p>
-                  <button class="pet_card_btn">Learn more</button>
-                </article>
-
-                <article class="pet_card">
-                  <img
-                    src="./img/pets-jennifer.png"
-                    alt="Jennifer the puppy"
-                    class="pet-card__img"
-                  >
-                  <h3 class="card_title">Jennifer</h3>
-                  <p class="card_meta">Dog — Labrador • 2 months</p>
-                  <p class="card_description">
-                    Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside.
-                  </p>
-                  <button class="pet_card_btn">Learn more</button>
-                </article>
-
-                <article class="pet_card">
-                  <img
-                    src="./img/pets-woody.png"
-                    alt="Woody the golden retriever"
-                    class="pet-card__img"
-                  >
-                  <h3 class="card_title">Woody</h3>
-                  <p class="card_meta">Dog — Golden Retriever • 3 years 6 months</p>
-                  <p class="card_description">
-                    Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot.
-                  </p>
-                  <button class="pet_card_btn">Learn more</button>
-                </article>
+              <div class="slider_window">
+                <div class="slider_track"></div>
               </div>
 
-              <button class="slider_btn" aria-label="Next pet">
+              <button class="slider_btn slider_btn_next" aria-label="Next pet">
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 14 6"
@@ -454,14 +414,9 @@
         <div class="popup_content_pet">
           <img src="./img/pets-jennifer.png" alt="" class="popup_img">
           <div class="pet_info">
-            <h3 class="popup_title">Jennifer</h3>
-            <h4 class="popup_subtitle">Dog - Labrador</h4>
-            <p class="popup_description">
-              Jennifer is a sweet 2 months old Labrador that is patiently
-              waiting to find a new forever home. This girl really enjoys being
-              able to go outside to run and play, but won't hesitate to play up
-              a storm in the house if she has all of her favorite toys.
-            </p>
+            <h3 class="popup_title"></h3>
+            <h4 class="popup_subtitle"></h4>
+            <p class="popup_description"></p>
             <ul class="popup_list">
               <li>
                 <strong>Age:</strong> <span class="popup_age">2 months</span>
@@ -479,6 +434,39 @@
                 <span class="popup_parasites">none</span>
               </li>
             </ul>
+            <div class="popup_params">
+              <div class="param_row">
+                <span class="param_label">Period:</span>
+                <button
+                  type="button"
+                  class="p_btn p_size active"
+                  data-price="0"
+                >
+                  1 month
+                </button>
+                <button type="button" class="p_btn p_size" data-price="15">
+                  3 months
+                </button>
+                <button type="button" class="p_btn p_size" data-price="30">
+                  6 months
+                </button>
+              </div>
+              <div class="param_row">
+                <span class="param_label">Care:</span>
+                <button type="button" class="p_btn p_addon" data-price="10">
+                  Food
+                </button>
+                <button type="button" class="p_btn p_addon" data-price="15">
+                  Vet
+                </button>
+                <button type="button" class="p_btn p_addon" data-price="5">
+                  Toys
+                </button>
+              </div>
+              <div class="param_total">
+                Total: <span id="popup_total">$25.00</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

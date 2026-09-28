@@ -4,6 +4,12 @@ const navLinks = document.querySelectorAll(".nav_link");
 const themeSwitch = document.querySelector(".theme-switch-button");
 const overlay = document.querySelector(".overlay");
 
+const filterButtons = document.querySelectorAll(".filter-btn");
+const allPetsButton = document.querySelector(".all-pets-btn");
+const dogsButton = document.querySelector(".dogs-btn");
+const catsButton = document.querySelector(".cats-btn");
+const babyButton = document.querySelector(".baby-btn");
+
 const popupWrapper = document.querySelector(".popup");
 const popupCloseBtn = document.querySelector(".popup_close_btn");
 
@@ -13,9 +19,12 @@ const pageNumberElement = document.querySelector(".btn_page_number");
 const btnNext = document.querySelector(".btn_next");
 const btnLast = document.querySelector(".btn_last");
 
+const header = document.querySelector("header");
+
 function closeMenu() {
   if (burgerMenu) burgerMenu.classList.remove("open");
   if (burgerIcon) burgerIcon.classList.remove("open");
+  if (header) header.classList.remove("open");
   if (overlay && (!popupWrapper || !popupWrapper.classList.contains("open"))) {
     overlay.classList.remove("open");
   }
@@ -34,6 +43,7 @@ if (burgerIcon) {
   burgerIcon.addEventListener("click", () => {
     if (burgerMenu) burgerMenu.classList.toggle("open");
     burgerIcon.classList.toggle("open");
+    if (header) header.classList.toggle("open");
     if (overlay) overlay.classList.toggle("open");
     document.body.classList.toggle("noscroll");
   });
@@ -62,8 +72,20 @@ if (popupWrapper) {
   });
 }
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    if (popupWrapper && popupWrapper.classList.contains("open")) {
+      closePopup();
+    }
+    if (burgerMenu && burgerMenu.classList.contains("open")) {
+      closeMenu();
+    }
+  }
+});
+
 let allPets = [];
 let longPetsList = [];
+let currentPetsList = [];
 let currentPage = 0;
 
 function shuffle(array) {
@@ -101,7 +123,7 @@ function getPageContent() {
   let start = currentPage * cardsPerPage;
   let end = start + cardsPerPage;
 
-  return longPetsList.slice(start, end);
+  return currentPetsList.slice(start, end);
 }
 
 function renderCards() {
@@ -132,7 +154,7 @@ function renderCards() {
 
 function getMaxPages() {
   const cardsPerPage = getCardsPerPage();
-  return 48 / cardsPerPage;
+  return Math.ceil(currentPetsList.length / cardsPerPage);
 }
 
 function updatePaginationStatus() {
@@ -156,6 +178,56 @@ function updatePaginationStatus() {
     if (btnNext) btnNext.disabled = false;
     if (btnLast) btnLast.disabled = false;
   }
+}
+
+function setActiveFilterButton(activeBtn) {
+  filterButtons.forEach((btn) => btn.classList.remove("active"));
+  if (activeBtn) activeBtn.classList.add("active");
+}
+
+if (allPetsButton) {
+  allPetsButton.addEventListener("click", () => {
+    currentPetsList = longPetsList;
+    currentPage = 0;
+    setActiveFilterButton(allPetsButton);
+    renderCards();
+    updatePaginationStatus();
+  });
+}
+
+if (dogsButton) {
+  dogsButton.addEventListener("click", () => {
+    const dogsList = longPetsList.filter((pet) => pet.type === "Dog");
+    currentPetsList = dogsList;
+    currentPage = 0;
+    setActiveFilterButton(dogsButton);
+    renderCards();
+    updatePaginationStatus();
+  });
+}
+
+if (catsButton) {
+  catsButton.addEventListener("click", () => {
+    const catsList = longPetsList.filter((pet) => pet.type === "Cat");
+    currentPetsList = catsList;
+    currentPage = 0;
+    setActiveFilterButton(catsButton);
+    renderCards();
+    updatePaginationStatus();
+  });
+}
+
+if (babyButton) {
+  babyButton.addEventListener("click", () => {
+    const babyList = longPetsList.filter(
+      (pet) => pet.age.includes("month") && !pet.age.includes("year"),
+    );
+    currentPetsList = babyList;
+    currentPage = 0;
+    setActiveFilterButton(babyButton);
+    renderCards();
+    updatePaginationStatus();
+  });
 }
 
 if (btnNext) {
@@ -200,8 +272,6 @@ async function loadPetsData() {
   const response = await fetch("./pets.json");
   allPets = await response.json();
 
-  console.log("Данные внутри функции:", allPets);
-
   for (let i = 0; i < 6; i++) {
     longPetsList.push(...allPets);
   }
@@ -212,13 +282,17 @@ async function loadPetsData() {
     longPetsList = shuffle(longPetsList);
   }
 
-  console.log(longPetsList);
+  currentPetsList = longPetsList;
   renderCards();
+  updatePaginationStatus();
 }
 
 loadPetsData();
 
 window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    closeMenu();
+  }
   currentPage = 0;
   renderCards();
   updatePaginationStatus();
@@ -237,6 +311,47 @@ document.addEventListener("click", (event) => {
   }
 });
 
+const BASE_PET_PRICE = 25;
+
+function updateModalTotal() {
+  const activeSize = document.querySelector(".p_size.active");
+  const sizePrice = activeSize ? Number(activeSize.dataset.price) : 0;
+
+  let addonsPrice = 0;
+  document.querySelectorAll(".p_addon.active").forEach((btn) => {
+    addonsPrice += Number(btn.dataset.price);
+  });
+
+  const total = BASE_PET_PRICE + sizePrice + addonsPrice;
+  const totalEl = document.getElementById("popup_total");
+  if (totalEl) totalEl.textContent = `$${total}.00`;
+}
+
+document.querySelectorAll(".p_size").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".p_size").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    updateModalTotal();
+  });
+});
+
+document.querySelectorAll(".p_addon").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+    updateModalTotal();
+  });
+});
+
+function resetModalParams() {
+  document.querySelectorAll(".p_size").forEach((btn, index) => {
+    btn.classList.toggle("active", index === 0);
+  });
+  document.querySelectorAll(".p_addon").forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  updateModalTotal();
+}
+
 function openPopup() {
   if (popupWrapper) popupWrapper.classList.add("open");
   document.body.classList.add("noscroll");
@@ -247,6 +362,7 @@ function setupAndOpenPopup(name) {
 
   if (targetPet) {
     fillPopupData(targetPet);
+    resetModalParams();
     openPopup();
   }
 }
@@ -277,7 +393,6 @@ function fillPopupData(petObject) {
   if (popupDiseases) popupDiseases.innerText = petObject.diseases.join(", ");
   if (popupParasites) popupParasites.innerText = petObject.parasites.join(", ");
 }
-
 
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-theme");
